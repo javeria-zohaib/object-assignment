@@ -20,3 +20,16 @@ let employee1 = {
     },
 };
 console.log(employee, employee1);
+let car = {
+    name: "yaris",
+    color: "black",
+    model: 2023,
+    powerstearing: true,
+    engine: {
+        horsepower: 1000
+    },
+    getHorsepower: () => {
+        return car.engine.horsepower;
+    }
+};
+console.log(car, car.getHorsepower());

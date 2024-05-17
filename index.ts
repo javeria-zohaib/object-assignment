@@ -12,7 +12,7 @@ type Employee={
     name:string,
     department:string,
     role:"Manager"|"Engineer"|"Intern"
-    contact:any,
+    contact?:any,
     skill?:string,
 
 };
@@ -39,3 +39,37 @@ let employee1:Employee={
     
 }
 console.log(employee,employee1);
+// Part 2: Car Details
+// Challenge:
+// 1. Design a type alias named Car to represent a car object.
+// 2. Include a nested object named engine within Car, containing a property named
+// horsepower (number).
+// 3. Define a function named get Horsepower directly within the Car type alias to retrieve the
+// engine's horsepower.
+
+type Car=
+ { 
+    name:string,
+    color:string,
+    model:number,
+    powerstearing:boolean,
+    engine:{
+        horsepower:number,
+    }
+    getHorsepower:()=>number,
+
+
+ }
+ let car:Car={
+    name:"yaris",
+    color:"black",
+    model:2023,
+    powerstearing:true,
+    engine:{
+        horsepower:1000
+    },
+    getHorsepower:()=>{
+        return  car.engine.horsepower;
+    }
+ }
+ console.log(car,car.getHorsepower());
