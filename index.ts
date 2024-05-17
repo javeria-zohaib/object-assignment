@@ -73,3 +73,51 @@ type Car=
     }
  }
  console.log(car,car.getHorsepower());
+//  Part 3: Colorful T-Shirts
+// Challenge:
+// 1. Design a type alias named Product to represent a T-shirt object with properties like name
+// (string), price (number), and color (string).
+// 2. Include a nested object named inventory within Product. This inventory object
+// should have two properties:
+// o stock (number): Represents the number of T-shirts available.
+// o colorOptions (optional array of strings): Lists available colors (if any).
+// 3. Inside the inventory object, define a function named changeColor. This function
+// accepts a new color string as an argument. When called, it should:
+// o Update the color property of the Product object.
+// o Adjust the price based on the new color (implement your own logic, e.g.,
+// increase by 10% for red, decrease by 5% for blue).
+type Product={
+    name:string,
+    price:number,
+    color:string,
+    inventory:{
+        stock:number,
+        coloroption:string[],
+        changecolor:(newcolor:string)=> any,
+    }
+}
+let tshirt:Product={
+    name:"colorful tshirts",
+    price:200,
+    color:"red",
+    inventory:{
+        stock:3000,
+        coloroption:["red","blue" ,"yellow","white"],
+        changecolor:(newcolor:string)=>{
+            if(tshirt.inventory.coloroption.includes(newcolor)){
+                if (newcolor === "blue"){
+                    console.log("increase price by 20% for blue");
+                }
+                else if(newcolor=== "white"){console.log("decrease price by 10% for white")
+                tshirt.color=newcolor;}
+
+                else{console.log("This colour is not available in color options")}
+                
+    
+
+
+            }
+        }}
+    }
+    console.log(tshirt);
+tshirt.inventory.changecolor("blue");
